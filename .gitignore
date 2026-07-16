@@ -1,0 +1,21 @@
+# Local loot / secrets — never commit real exam credentials
+loot/
+*.ccache
+*.kirbi
+*.dmp
+lsass*
+hashes.txt
+asrep.txt
+tgs.txt
+
+# Editor / OS
+.DS_Store
+*.swp
+.idea/
+.vscode/
+*.tmp
+
+# Large binaries / tool mirrors (keep tools elsewhere)
+tools/
+payloads/*.exe
+payloads/*.elf
