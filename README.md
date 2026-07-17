@@ -13,9 +13,12 @@ Personal study repository for Offensive Security Certified Professional (OSCP / 
 | Scoring strategy | [00-exam/scoring-strategy.md](00-exam/scoring-strategy.md) | How to plan for 70 points |
 | Methodology | [01-methodology/](01-methodology/) | Kill chain, note-taking, exam ops |
 | Notes & loot | [01-methodology/note-taking-and-loot.md](01-methodology/note-taking-and-loot.md) | Workspace, loot table, screenshots |
-| Recon | [02-recon/](02-recon/) | Scanning, service enum |
+| Recon | [02-recon/](02-recon/) | Scanning, service enum (SMB/NFS/SNMP) |
 | Initial access | [03-initial-access/](03-initial-access/) | Web, services, shells, common patterns |
+| Web attacks | [03-initial-access/web-attacks.md](03-initial-access/web-attacks.md) | LFI, upload bypass, manual SQLi |
+| Transfer & shells | [cheatsheets/transfer-and-shells.md](cheatsheets/transfer-and-shells.md) | File move + reverse shells |
 | Report outline | [resources/report-outline.md](resources/report-outline.md) | Practice / exam report structure |
+| Community sources | [resources/community-sources.md](resources/community-sources.md) | 0xsyr0 + Cheatsheet-God usage notes |
 | Privilege escalation | [04-privilege-escalation/](04-privilege-escalation/) | Windows & Linux |
 | Active Directory | [05-active-directory/](05-active-directory/) | Enum, auth attacks, lateral, DA |
 | AD decision flow | [05-active-directory/decision-flow.md](05-active-directory/decision-flow.md) | What to try next |

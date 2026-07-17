@@ -104,7 +104,7 @@ ffuf -u http://TARGET -H "Host: FUZZ.domain.local" -w subdomains.txt -fs SIZE
 ### SMB (139/445)
 
 ```bash
-# NetExec (modern CrackMapExec)
+# NetExec (prefer over CrackMapExec)
 nxc smb TARGET
 nxc smb TARGET -u '' -p '' --shares
 nxc smb TARGET -u users.txt -p 'Password123' --continue-on-success
@@ -112,8 +112,25 @@ nxc smb TARGET -u user -p pass -M spider_plus
 
 # Classic
 smbclient -L //TARGET -N
+smbclient -L //TARGET/ -U 'USER%PASS'
 smbmap -H TARGET
 enum4linux-ng TARGET
+```
+
+#### smbclient multi-get (download whole share)
+
+```bash
+smbclient //TARGET/SHARE -U 'USER%PASS'
+# inside smbclient:
+mask ""
+recurse ON
+prompt OFF
+mget *
+```
+
+```bash
+# SYSVOL / scripts often hold passwords
+smbclient //DC/SYSVOL -U 'USER%PASS'
 ```
 
 ### LDAP / AD (389/636/3268)
@@ -162,11 +179,44 @@ sudo download-mibs
 # community strings
 onesixtyone -c /usr/share/seclists/Discovery/SNMP/common-snmp-community-strings.txt TARGET
 snmpwalk -v2c -c public TARGET
-# Leading dot pulls from root of MIB tree — often the difference between empty and gold
+# Leading dot / .1 pulls from root of MIB tree — often the difference between empty and gold
+snmpwalk -v2c -c public TARGET .1
 snmpbulkwalk -v2c -c public TARGET .
 ```
 
+#### Useful OIDs (Windows / generic)
+
+| OID | Often returns |
+|-----|----------------|
+| `1.3.6.1.2.1.1.5` | sysName |
+| `1.3.6.1.4.1.77.1.2.25` | Windows user accounts (legacy) |
+| `1.3.6.1.2.1.25.4.2.1.2` | Running processes (HOST-RESOURCES) |
+| `1.3.6.1.2.1.25.6.3.1.2` | Installed software |
+| `1.3.6.1.4.1.77.1.2.3.1.1` | Windows share names (legacy) |
+| `nsExtendObjects` | Extend scripts / command output (Linux net-snmp) |
+
+```bash
+snmpwalk -c public -v1 TARGET 1.3.6.1.4.1.77.1.2.25
+snmpwalk -c public -v1 TARGET 1.3.6.1.2.1.25.4.2.1.2
+snmpwalk -v2c -c public TARGET nsExtendObjects
+```
+
 Hunt: usernames, process paths, network interfaces, **cleartext credentials** in descriptions.
+
+### NFS (2049)
+
+```bash
+showmount -e TARGET
+sudo showmount -e TARGET
+# mount export (check no_root_squash for privesc)
+mkdir -p /mnt/nfs
+sudo mount -t nfs TARGET:/export /mnt/nfs
+# NFSv4 example
+sudo mount -t nfs -o vers=4,nolock TARGET:/export /mnt/nfs
+cat /etc/exports   # on a Linux foothold — list exports + options
+```
+
+If `no_root_squash`: from attacker, create SUID binary as root on the share, execute as low-priv on the NFS server.
 
 ## Web content & metadata
 

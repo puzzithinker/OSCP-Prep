@@ -25,6 +25,7 @@ Learn concepts in 00–08
 | [proof-and-loot.md](proof-and-loot.md) | Flag capture + quick loot |
 | [ad-quick.md](ad-quick.md) | AD spray / roast / dump / lateral |
 | [privesc-quick.md](privesc-quick.md) | Windows + Linux privesc triage |
+| [transfer-and-shells.md](transfer-and-shells.md) | File transfer matrix + reverse shells + breakouts |
 
 ## Markdown vs arsenal-ng
 

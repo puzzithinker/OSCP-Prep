@@ -25,9 +25,9 @@ Record:
 
 | Vector | What to try | Next step |
 |--------|-------------|-----------|
-| LFI/RFI | `../../../../etc/passwd`, PHP wrappers | Log poison / SSH keys / configs |
-| File upload | Web shell, polyglot, reverse shell | Execute via web path |
-| SQLi | Auth bypass, UNION, file read | Creds or RCE (INTO OUTFILE, xp_cmdshell on linked DB) |
+| LFI/RFI | `../../../../etc/passwd`, PHP wrappers | Log poison / SSH keys / configs — see [web-attacks.md](web-attacks.md) |
+| File upload | Web shell, polyglot, reverse shell | Execute via web path — see [web-attacks.md](web-attacks.md) |
+| SQLi | Auth bypass, UNION, file read | Creds or RCE (INTO OUTFILE, xp_cmdshell) — manual patterns in [web-attacks.md](web-attacks.md) |
 | Command injection | `; id`, `| whoami`, `` `id` `` | Reverse shell |
 | Default creds | admin/admin, tomcat/tomcat | Panel RCE (manager deploy) |
 | Known CVE | Searchsploit version | Edit exploit, understand it |

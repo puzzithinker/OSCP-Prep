@@ -2,13 +2,26 @@
 
 MSSQL is a frequent OSCP foothold and lateral channel.
 
+Prefer **Impacket / NetExec** over Metasploit modules for exam-friendly workflows.
+
+## Discovery
+
+```bash
+# TCP 1433 + UDP browser/info
+nmap -Pn -p 1433 TARGET
+nmap -sU -p 1434 --script ms-sql-info TARGET
+nxc mssql TARGET -u user -p pass
+```
+
 ## Connection
 
 ```bash
 impacket-mssqlclient domain/user:pass@TARGET -windows-auth
 impacket-mssqlclient user:pass@TARGET
+impacket-mssqlclient sa:pass@TARGET
 impacket-mssqlclient -k -no-pass domain.local/user@sqlhost.domain.local
 nxc mssql TARGET -u user -p pass -d DOMAIN
+nxc mssql TARGET -u user -H NTHASH -d DOMAIN -x 'whoami'
 ```
 
 ## Situational awareness queries

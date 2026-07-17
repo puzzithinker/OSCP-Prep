@@ -27,17 +27,29 @@ Local guide: [reporting-sysreptor.md](reporting-sysreptor.md)
 
 Local guide: [arsenal-ng.md](arsenal-ng.md)
 
+## Community OSCP collections (sources for this repo)
+
+| Resource | Use |
+|----------|-----|
+| [0xsyr0/OSCP](https://github.com/0xsyr0/OSCP) | Large maintained OSCP+ cheatsheet (commands, tools, links) |
+| [OlivierLaflamme/Cheatsheet-God](https://github.com/OlivierLaflamme/Cheatsheet-God) | Topic cheatsheets (shells, transfer, SQLi, pivot, …) |
+
+How we mined them (no full mirror): [community-sources.md](community-sources.md)
+
 ## Cheat sheets & methodology
 
 | Resource | Use |
 |----------|-----|
 | [HackTricks](https://book.hacktricks.xyz/) | Service-by-service playbooks |
-| [PayloadsAllTheThings](https://swisskyrepo.github.io/PayloadsAllTheThings/) | Web / injection payloads |
+| [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) | Web / injection payloads |
+| [Tib3rius SQLi cheatsheet](https://tib3rius.com/sqli.html) | Manual SQL injection |
 | [GTFOBins](https://gtfobins.github.io/) | Unix sudo/SUID abuse |
 | [LOLBAS](https://lolbas-project.github.io/) | Windows living-off-the-land |
 | [WADComs](https://wadcoms.github.io/) | AD command recipes |
 | [Orange Cyberdefense AD mindmap](https://orange-cyberdefense.github.io/ocd-mindmaps/) | AD attack paths visual |
 | [ired.team](https://www.ired.team/) | AD / Kerberos deep dives |
+| [DefaultCreds-cheat-sheet](https://github.com/ihebski/DefaultCreds-cheat-sheet) | Default credentials |
+| [SecLists](https://github.com/danielmiessler/SecLists) | Wordlists / LFI lists |
 | This repo [cheatsheets/](../cheatsheets/) | Curated OSCP markdown |
 
 ## Core tools (install on Kali)
