@@ -129,8 +129,11 @@ Linux:   hostname + id + ip a + cat local/proof
 - [ ] Each host: enum table → foothold → privesc → proof
 - [ ] Steps reproducible (commands + context)
 - [ ] Appendix of all flag hashes
-- [ ] SysReptor (or other) PDF export; spellcheck; submit early with buffer
-- [ ] See [resources/reporting-sysreptor.md](../resources/reporting-sysreptor.md)
+- [ ] Filename: `OSCP-OS-XXXXX-Exam-Report.pdf` (your OSID)
+- [ ] SysReptor (or other) PDF export; spellcheck
+- [ ] Archive: password-free `.7z`, under **200 MB**
+- [ ] Upload to [upload.offsec.com](https://upload.offsec.com) early with buffer
+- [ ] See [resources/reporting-sysreptor.md](../resources/reporting-sysreptor.md) · [report-outline.md](../resources/report-outline.md)
 
 ## Do not
 
@@ -138,3 +141,5 @@ Linux:   hostname + id + ip a + cat local/proof
 - [ ] Submit hashes to public crack sites
 - [ ] Rely on memory for proof after 20+ hours
 - [ ] Burn the full exam on one machine
+- [ ] Use prohibited tooling (commercial Pro suites, SQLmap, mass scanners, LLM prompts, banned spoofing)
+- [ ] Pivot multi-host with Metasploit exploit/Meterpreter (single-target rule)

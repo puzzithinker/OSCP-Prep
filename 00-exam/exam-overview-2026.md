@@ -14,7 +14,10 @@ The hands-on exam format itself is stable into 2026: long practical engagement, 
 Official references:
 
 - [OSCP Exam Guide](https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide)
+- [OSCP Exam FAQ](https://help.offsec.com/hc/en-us/articles/4412170923924-OSCP-Exam-FAQ)
 - [Changes to the OSCP](https://help.offsec.com/hc/en-us/articles/29840452210580-Changes-to-the-OSCP)
+
+Study map of required knowledge (foundations → domains → tools → report): **[required-knowledge-2026.md](required-knowledge-2026.md)**
 
 ## Timing
 
@@ -53,14 +56,14 @@ One set of **3 machines** (typical pattern: client/app host → intermediate →
 
 ## Ways to hit 70
 
-Examples of valid combinations (from public exam-guide style breakdowns):
+Examples aligned with public exam-guide / FAQ style breakdowns:
 
 | Path | Math |
 |------|------|
-| Full AD + 3 locals | 40 + 30 = **70** |
-| Full AD + 2 locals + 1 proof | 40 + 20 + 10 = **70** |
-| Partial AD + full standalones | e.g. 10 AD + 60 standalones = **70** |
-| Full AD + mix of proofs | Flexible if you can count to 70 |
+| Full AD + three `local.txt` | 40 + 30 = **70** |
+| Full AD + two `local.txt` + one `proof.txt` | 40 + 20 + 10 = **70** |
+| **20** AD + three `local.txt` + two `proof.txt` | 20 + 30 + 20 = **70** |
+| **10** AD + three fully completed standalones | 10 + 60 = **70** |
 
 **Practical strategy for most candidates:**
 
@@ -68,13 +71,23 @@ Examples of valid combinations (from public exam-guide style breakdowns):
 2. Then farm **standalone local.txt** flags for partial credit.
 3. Escalate standalones only when the path is clear — do not burn hours on one rabbit hole.
 
+Full time models: [scoring-strategy.md](scoring-strategy.md). Skill map: [required-knowledge-2026.md](required-knowledge-2026.md).
+
+## Background expectations (not formal prereqs)
+
+OffSec expects comfort with:
+
+- TCP/IP addressing, subnetting, common protocols/services  
+- Hands-on Windows and Linux administration + basic AD awareness  
+- Bash and/or Python scripting  
+
 ## What is *not* on the exam
 
 | Topic | Status |
 |-------|--------|
-| Buffer overflow | Removed from exam long ago — skip dedicated BOF grinding for OSCP |
+| Buffer overflow | Removed with 2023 PEN-200 revision — still out of exam BoK in 2026 |
 | Advanced ADCS / forest trusts / complex delegation chains | Beyond typical OSCP depth (great for OSEP/CRTO, not required here) |
-| AWS module | Present in updated course material; **not yet exam content** per OffSec change notes |
+| AWS module | Present in course material; **not exam content** per public FAQ / change notes (re-check guide near exam day) |
 
 ## What *is* heavily weighted
 
@@ -82,15 +95,32 @@ Examples of valid combinations (from public exam-guide style breakdowns):
 - **Credential hunting** and reuse
 - **Windows + Linux privilege escalation** fundamentals
 - **Active Directory authentication attacks** at OSCP depth: password spray, AS-REP roast, Kerberoast, PTH/PTT, secrets dump, DCSync-class domain dominance
-- **Pivoting / tunneling** into double-homed hosts and internal subnets
+- **Pivoting / tunneling** (SSH, port redirect, SOCKS/TUN; course also covers tunneling through DPI)
 - **Professional report** with reproducible steps and proof screenshots
 
-## Metasploit policy (mind the limit)
+## Metasploit and tool policy (mind the limits)
 
-OffSec historically limits unrestricted Metasploit use. Default mindset:
+Default training habit: **manual** exploitation and shells. Confirm live rules in the exam guide.
 
-- Prefer **manual** exploitation and shells (`msfvenom` payloads are fine; interactive MSF exploit modules are constrained).
-- Know the current exam rules from the official guide on exam day — policies are what OffSec publishes, not what Reddit remembers.
+| Category | Working mental model |
+|----------|----------------------|
+| `msfvenom` / `multi/handler` | Broadly usable for payloads and listeners |
+| Auxiliary / Exploit / Post + Meterpreter | Only against **one** chosen target (locked on first use); no multi-host pivot *via* MSF |
+| Commercial tools | e.g. Metasploit Pro, Burp Pro — prohibited |
+| Auto-exploit / mass scanners | e.g. SQLmap, mass vuln scanners — prohibited |
+| AI / LLMs | Direct prompt access during exam — prohibited |
+| Common allowed examples | Nmap/NSE, Nikto, Burp Free, BloodHound CE, Impacket, Mimikatz, evil-winrm, Rubeus, Responder without poisoning/spoofing |
+
+Allowed lists are non-exhaustive; prefer techniques taught in PEN-200.
+
+## Report packaging (exam deliverable)
+
+| Item | Requirement |
+|------|-------------|
+| Filename | `OSCP-OS-XXXXX-Exam-Report.pdf` |
+| Archive | Password-free `.7z`, under **200 MB** |
+| Upload | upload.offsec.com within **24h** of exam end |
+| Proofs | Submitted in control panel **before** exam ends; screenshots from interactive shell at original flag paths |
 
 ## Proof capture checklist
 

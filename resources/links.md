@@ -3,9 +3,18 @@
 ## Official OffSec
 
 - [PEN-200 course page](https://www.offsec.com/courses/pen-200/)
-- [OSCP Exam Guide](https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide)
-- [Changes to the OSCP](https://help.offsec.com/hc/en-us/articles/29840452210580-Changes-to-the-OSCP)
+- [OSCP Exam Guide](https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide) (OSCP+ format, scoring, tools)
+- [OSCP Exam FAQ](https://help.offsec.com/hc/en-us/articles/4412170923924-OSCP-Exam-FAQ)
+- [Changes to the OSCP](https://help.offsec.com/hc/en-us/articles/29840452210580-Changes-to-the-OSCP) (Nov 2024+ framework)
+- [OSCP Exam Changes](https://help.offsec.com/hc/en-us/articles/29865898402836-OSCP-Exam-Changes)
+- [PEN-200 onboarding](https://help.offsec.com/hc/en-us/articles/4406841351316-PEN-200-Onboarding-A-Learner-Introduction-Guide-to-the-OSCP)
+- [PEN-200 FAQ](https://help.offsec.com/hc/en-us/articles/12483872278932-PEN-200-FAQ)
+- [12-week PEN-200 learning plan](https://help.offsec.com/hc/en-us/articles/15541765522196-OffSec-PEN-200-Learning-Plan-12-Week)
+- [PEN-200 2023 update blog](https://www.offsec.com/blog/pen-200-2023/) (module framing; BOF removal era)
 - [OffSec CPE / OSCP+ maintenance](https://help.offsec.com/hc/en-us/articles/35366391096596-OffSec-CPE-Program-and-Annual-Maintenance-Handbook)
+- Report upload: [upload.offsec.com](https://upload.offsec.com)
+
+Local BoK map: [required-knowledge-2026.md](../00-exam/required-knowledge-2026.md)
 
 ## Reporting & note-taking (recommended)
 

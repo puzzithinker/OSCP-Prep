@@ -1,5 +1,13 @@
 # Proof Capture & Loot Cheatsheet
 
+Exam packaging: [required-knowledge §6](../00-exam/required-knowledge-2026.md) · [report-outline.md](../resources/report-outline.md)
+
+| When | Do |
+|------|-----|
+| Shell gained | Identity + flag same screenshot; submit value in **control panel** before exam ends |
+| Flag path | `cat` / `type` from **original** location (not copied elsewhere) |
+| Report | `OSCP-OS-XXXXX-Exam-Report.pdf` → password-free `.7z` under 200 MB → upload.offsec.com within 24h |
+
 ## Windows proof one-liner
 
 ```cmd

@@ -4,11 +4,22 @@ Use this structure for practice reports and exam submissions. Confirm current re
 
 **Preferred tooling (2026):** [SysReptor + OffSec designs](reporting-sysreptor.md) via [Syslifters/OffSec-Reporting](https://github.com/Syslifters/OffSec-Reporting) — markdown findings → PDF. This outline still applies whether you use SysReptor, pandoc, or Word.
 
+## Exam packaging checklist
+
+| Item | Requirement |
+|------|-------------|
+| PDF name | `OSCP-OS-XXXXX-Exam-Report.pdf` |
+| Archive | Password-free `.7z`, under **200 MB** |
+| Upload | [upload.offsec.com](https://upload.offsec.com) within **24 hours** of exam end |
+| Proofs | Control panel submit **before** exam ends; screenshots from interactive shell at original flag paths (`cat` / `type`) with hostname / whoami / IP |
+
+BoK / exam context: [required-knowledge-2026.md](../00-exam/required-knowledge-2026.md)
+
 ## 1. Cover / metadata
 
 - Student email / OSID (as required)
 - Exam / engagement date
-- Document title
+- Document title matching exam naming convention
 
 ## 2. Introduction
 

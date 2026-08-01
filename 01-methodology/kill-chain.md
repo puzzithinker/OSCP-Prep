@@ -1,5 +1,7 @@
 # Penetration Testing Methodology (OSCP-focused)
 
+What skills this loop exercises: [required-knowledge-2026.md](../00-exam/required-knowledge-2026.md)
+
 ## Overview
 
 OSCP rewards a **repeatable process**, not memorized one-liners. Every machine — standalone or AD — follows the same loop:

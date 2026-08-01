@@ -13,15 +13,18 @@ Always confirm live numbers in the [official exam guide](https://help.offsec.com
 
 ## Pass combinations (examples)
 
+Aligned with public exam-guide / FAQ style paths:
+
 | Strategy | Math | Risk |
 |----------|------|------|
-| Full AD + 3 locals | 40+30=70 | Best balance |
-| Full AD + 2 locals + 1 proof | 40+20+10=70 | Need one privesc |
-| Full AD + 1 full standalone + 1 local | 40+20+10=70 | |
-| No full AD + all standalones | 0+60=60 | **Fail** without more AD points |
-| Partial AD + all standalones | 10+60=70 | Possible but stressful |
+| Full AD + 3 locals | 40+30=**70** | Best balance for most candidates |
+| Full AD + 2 locals + 1 proof | 40+20+10=**70** | Need one standalone privesc |
+| Full AD + 1 full standalone + 1 local | 40+20+10=**70** | Same math as above, different hosts |
+| **20** AD + 3 locals + 2 proofs | 20+30+20=**70** | Viable if AD chain stalls mid-set |
+| **10** AD + 3 full standalones | 10+60=**70** | Possible but stressful — zero margin |
+| No AD + all standalones | 0+60=**60** | **Fail** without AD points |
 
-**Implication:** Treating AD as optional is a losing strategy for most candidates.
+**Implication:** Treating AD as optional is a losing strategy for most candidates. Skill depth required: [required-knowledge-2026.md](required-knowledge-2026.md).
 
 ## Priority order
 

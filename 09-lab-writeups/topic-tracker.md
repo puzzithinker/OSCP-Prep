@@ -4,13 +4,26 @@ Check off when you can **do it without notes** on a practice box (not just watch
 
 Legend: `[ ]` todo · `[~]` shaky · `[x]` solid
 
+Full BoK map: [required-knowledge-2026.md](../00-exam/required-knowledge-2026.md)
+
+## Foundations (background)
+
+- [ ] TCP/IP: addressing, subnetting, common protocols
+- [ ] Linux admin comfort (users, services, files, networking)
+- [ ] Windows admin comfort (users, shares, services, PowerShell basics)
+- [ ] Basic AD awareness (domain users/groups/computers concept)
+- [ ] Bash and/or Python for small scripts and parsing
+
 ## Exam ops
 
 - [ ] Workspace + note structure under pressure
 - [ ] Full TCP + service scan workflow
 - [ ] Proof screenshots (identity + flag same frame)
+- [ ] Control-panel flag submit + original-path `cat`/`type`
 - [ ] Report section per host (enum → exploit → privesc → fix)
+- [ ] Report package: `OSCP-OS-XXXXX-Exam-Report.pdf` → password-free `.7z` under 200MB
 - [ ] Time-boxing / host rotation discipline
+- [ ] Metasploit single-target discipline (if used)
 
 ## Information gathering
 
@@ -105,9 +118,17 @@ Legend: `[ ]` todo · `[~]` shaky · `[x]` solid
 - [ ] Identify dual-homed host + routes
 - [ ] chisel reverse SOCKS + proxychains
 - [ ] ligolo-ng TUN + routes
-- [ ] SSH -D / -L / -R
+- [ ] SSH -D / -L / -R (port redirect + dynamic)
+- [ ] Course-level advanced / DPI tunneling concepts (awareness + lab practice)
 - [ ] Scan and attack internal hosts through tunnel
 - [ ] Double-hop reverse shell via pivot
+
+## Metasploit (within exam policy)
+
+- [ ] msfvenom payloads (exe/elf/aspx/php as needed)
+- [ ] multi/handler listeners
+- [ ] One-host exploit/post/Meterpreter workflow (if used)
+- [ ] Habit: never pivot multi-host via MSF on exam
 
 ## Modern tooling
 
@@ -121,6 +142,17 @@ Legend: `[ ]` todo · `[~]` shaky · `[x]` solid
 - [ ] Constrained/unconstrained delegation attacks
 - [ ] Advanced coercion (PetitPotam, etc.)
 - [ ] Custom C2
+- [ ] AWS course module (course only — not exam BoK as of public FAQ)
+- [ ] Buffer overflows (removed from exam)
+
+### Suggested study order (OffSec 12-week style)
+
+1. Web enum/exploit + public exploits  
+2. Password attacks  
+3. Win + Linux privesc  
+4. Port redirect / SSH / advanced tunneling  
+5. Metasploit (limited)  
+6. AD enum → auth attacks → lateral  
 
 ---
 
