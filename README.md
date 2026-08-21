@@ -27,6 +27,8 @@ Personal study repository for Offensive Security Certified Professional (OSCP / 
 | Password attacks | [07-password-attacks/](07-password-attacks/) | Hashcat/John modes |
 | MSSQL | [08-mssql/](08-mssql/) | Linked servers, xp_cmdshell, relay |
 | Lab writeups | [09-lab-writeups/](09-lab-writeups/) | Template + your own notes |
+| **Practice labs (2026)** | [resources/practice-labs-2026.md](resources/practice-labs-2026.md) | PEN-200, PG, TJ Null / LainKusanagi, GOAD |
+| **Local Docker range** | [labs/docker/README.md](labs/docker/README.md) | 3 Linux standalones + assumed-breach chain |
 | Topic tracker | [09-lab-writeups/topic-tracker.md](09-lab-writeups/topic-tracker.md) | PEN-200 syllabus checklist |
 | Cheatsheets | [cheatsheets/](cheatsheets/) | BoK-aligned CLI (domain map in README) |
 | Terminal launcher | [resources/arsenal-ng.md](resources/arsenal-ng.md) | [arsenal-ng](https://github.com/halilkirazkaya/arsenal-ng) |
@@ -51,6 +53,8 @@ Personal study repository for Offensive Security Certified Professional (OSCP / 
 
 Skill map, tool rules, PEN-200 module alignment: **[required-knowledge-2026.md](00-exam/required-knowledge-2026.md)**.
 
+**Practice labs in 2026:** they still exist (PEN-200 challenge labs, PG Practice with retired OSCP+ exam machines, HTB / LainKusanagi / TJ Null v3, GOAD). Map: [practice-labs-2026.md](resources/practice-labs-2026.md). Local Linux range: [labs/docker](labs/docker/README.md).
+
 ## How to use this repo
 
 1. Read [required knowledge](00-exam/required-knowledge-2026.md), [exam overview](00-exam/exam-overview-2026.md), and the [exam-day checklist](00-exam/exam-day-checklist.md).
@@ -59,7 +63,8 @@ Skill map, tool rules, PEN-200 module alignment: **[required-knowledge-2026.md](
 4. Draft findings in [SysReptor / OffSec-Reporting](resources/reporting-sysreptor.md) so PDF export is boring on exam day.
 5. Track coverage with [topic-tracker.md](09-lab-writeups/topic-tracker.md).
 6. After each practice machine, use [WRITEUP-TEMPLATE.md](09-lab-writeups/WRITEUP-TEMPLATE.md) and/or a SysReptor finding.
-7. Before exam day: AD decision flow + pivoting + proof capture + one full practice PDF export.
+7. Grind live boxes from [practice-labs-2026.md](resources/practice-labs-2026.md); use the [Docker range](labs/docker/README.md) for offline Linux reps.
+8. Before exam day: AD decision flow + pivoting + proof capture + one full practice PDF export.
 
 ## Tooling notes (2024–2026)
 

@@ -1,0 +1,6 @@
+Northwind assumed-breach notes (jdoe)
+
+- Payroll app is APP01 on the *internal* subnet (172.28.20.0/24), not reachable from the VPN.
+- This jump box is dual-homed — check ip a / ip r.
+- Service account for APP01: svc_backup / Summer2024!
+- DC is DC01 on the same internal net. I do not have those creds.

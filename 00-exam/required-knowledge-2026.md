@@ -237,6 +237,8 @@ Domain gaps?          → sections 02–08 + cheatsheets + topic-tracker
 Exam format gaps?     → exam-overview + scoring-strategy + exam-day-checklist
 Report muscle memory? → report-outline + SysReptor practice export
 Hands-on proof?       → 09-lab-writeups after every box
+Live machines 2026?   → resources/practice-labs-2026.md (PEN-200, PG, lists, GOAD)
+Offline Linux reps?   → labs/docker (not a Windows/AD substitute)
 Command under fire?   → cheatsheets/README.md (domain → file map) + arsenal-ng
 ```
 

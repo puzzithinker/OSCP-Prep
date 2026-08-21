@@ -1,0 +1,4 @@
+Archived note from ops:
+
+Nightly tarball is created by /usr/local/bin/backup.sh (root cron).
+Please stop chmod 777 on that script — intern left it world-writable "so www could debug".

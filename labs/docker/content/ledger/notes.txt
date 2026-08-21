@@ -1,0 +1,6 @@
+dev@ledger
+
+SSH key is in ~/.ssh/id_rsa (world-readable — fix permissions).
+If the key is a pain, password is LedgerDev2024!
+
+sudo -l should only allow find for package cleanup. Do not grant a shell.

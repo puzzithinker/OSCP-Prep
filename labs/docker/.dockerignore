@@ -1,0 +1,6 @@
+**/.git
+**/SPOILERS.md
+**/README.md
+**/Makefile
+**/*.md
+verify-up.sh

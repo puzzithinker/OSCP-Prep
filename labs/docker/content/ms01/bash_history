@@ -1,0 +1,5 @@
+ip a
+ip r
+ping -c 1 172.28.20.12
+ssh svc_backup@172.28.20.12
+# password was in Documents/todo.txt

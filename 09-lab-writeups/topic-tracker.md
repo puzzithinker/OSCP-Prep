@@ -156,6 +156,18 @@ Full BoK map: [required-knowledge-2026.md](../00-exam/required-knowledge-2026.md
 
 ---
 
+## Local Docker range (optional offline reps)
+
+See [labs/docker/README.md](../labs/docker/README.md). Tick when you can finish **without** `SPOILERS.md`:
+
+- [ ] harbor: upload foothold + cron root
+- [ ] ledger: LFI → SSH + sudo find
+- [ ] catalog: manual SQLi → SUID PATH
+- [ ] chain: assumed-breach MS01 → pivot → APP01 loot → DC01 proof
+- [ ] Proof screenshots (hostname + id + flag) on each
+
+Live platforms (PEN-200 / PG / HTB / GOAD): [practice-labs-2026.md](../resources/practice-labs-2026.md)
+
 ## Practice log (optional)
 
 | Date | Box / lab | Topics practiced | Result |

@@ -151,12 +151,23 @@ type C:\Users\Administrator\Desktop\proof.txt
 5. **AD first or second**, not last — fatigue kills AD chains.
 6. **Sleep is a tool** — short rest often unlocks stuck privesc.
 
-## Recommended practice platforms (OSCP-shaped)
+## Recommended practice platforms (OSCP-shaped, 2026)
 
-- OffSec PEN-200 labs + challenge labs (primary)
-- HackTheBox / Proving Grounds Practice (Windows + AD paths)
-- VulnHub for Linux fundamentals
-- Home AD lab (2–3 Windows + DC) for muscle memory
+Labs did **not** go away. As of 2026:
+
+| Source | Role |
+|--------|------|
+| PEN-200 module labs + **9 challenge labs** | Primary. **Three** challenge labs (community: OSCP A/B/C) replicate the exam set. |
+| **Proving Grounds Practice** ($19/mo) | OffSec Windows/Linux + **retired OSCP+ exam labs**, unlimited time |
+| PG Play (free) | Linux-only VulnHub-community machines, 3h limit |
+| LainKusanagi list + TJ Null **v3** | HTB/PG volume filter (v3 = current OSCP+) |
+| HTB Pro Labs Dante / Zephyr | Multi-host + AD networks |
+| GOAD-Light / Ludus | Home Windows AD (Docker cannot do this) |
+| This repo [Docker range](../labs/docker/README.md) | Offline Linux: upload, LFI, SQLi, sudo, pivot |
+
+Full names, 2026 HTB additions, HackTrack, and a study sequence: **[practice-labs-2026.md](../resources/practice-labs-2026.md)**.
+
+Community default: time-box **OSCP A/B/C** like exam day; treat Zeus/Poseidon as harder-than-exam optional.
 
 ## Pricing snapshot (check OffSec for current)
 

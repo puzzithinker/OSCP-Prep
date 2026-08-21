@@ -29,3 +29,5 @@ Third-party text is **not** claimed as original. Prefer linking upstream for dee
 | Spray / hydra / kerbrute | `07-password-attacks/cracking.md` |
 | MSSQL discovery | `08-mssql/attacks.md` |
 | Credits / links | this file, `resources/links.md` |
+| 2026 lab catalog | `resources/practice-labs-2026.md` (OffSec + PG + TJ Null/LainKusanagi + X) |
+| Local Docker range | `labs/docker/` |

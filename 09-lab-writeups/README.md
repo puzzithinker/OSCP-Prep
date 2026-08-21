@@ -6,6 +6,8 @@ Personal practice notes live here. Use the template for every machine you finish
 |------|---------|
 | [WRITEUP-TEMPLATE.md](WRITEUP-TEMPLATE.md) | Copy for each box |
 | [topic-tracker.md](topic-tracker.md) | Syllabus / skill checklist |
+| [practice-labs-2026.md](../resources/practice-labs-2026.md) | Where to find machines in 2026 |
+| [Docker range](../labs/docker/README.md) | Local Linux standalones + chain |
 
 ## Naming
 

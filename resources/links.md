@@ -94,15 +94,21 @@ nxc --help
 - [Tarlogic Kerberos cheatsheet gist](https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a)
 - Clock sync + DNS to DC are mandatory for `-k` workflows
 
-## Practice platforms
+## Practice platforms (2026)
+
+Deep dive (what still exists, named boxes, sequence): **[practice-labs-2026.md](practice-labs-2026.md)** · local range: **[labs/docker](../labs/docker/README.md)**
 
 | Platform | Why |
 |----------|-----|
-| OffSec PEN-200 labs | Closest to exam |
-| Proving Grounds Practice | OSCP-like boxes |
-| Hack The Box | Windows/AD reps |
-| VulnHub | Linux fundamentals |
-| GOAD / home AD lab | AD muscle memory |
+| OffSec PEN-200 labs + challenge labs | Closest to exam; OSCP A/B/C are exam replicas |
+| [Proving Grounds Practice](https://www.offsec.com/products/proving-grounds/) | OffSec Windows/Linux, retired OSCP+ exam labs, $19/mo |
+| PG Play | Free Linux (VulnHub community), 3h cap |
+| [LainKusanagi OSCP-like](https://docs.google.com/spreadsheets/d/18weuz_Eeynr6sXFQ87Cd5F0slOj9Z6rt) | Grounded PG/HTB/THM list (drops over-hard boxes) |
+| [TJ Null / NetSecFocus v3](https://docs.google.com/spreadsheets/d/1dwSMIAPIam0PuRBkCiDI88pU3yzrqqHkDtBngUHNCw8) | Live OSCP+ spreadsheet; [0xdf mapping](https://0xdf.gitlab.io/cheatsheets/offsec) |
+| Hack The Box + Pro Labs (Dante, Zephyr) | Volume + AD/pivot networks |
+| [GOAD](https://github.com/Orange-Cyberdefense/GOAD) / [Ludus](https://docs.ludus.cloud/) | Home Windows AD |
+| VulnHub | Linux VMs; many also on PG Play |
+| This repo Docker range | Offline Linux standalones + assumed-breach chain |
 
 ## What to deprioritize for OSCP 2026
 

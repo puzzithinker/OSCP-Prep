@@ -1,0 +1,89 @@
+# Local OSCP-prep range. Bind to loopback only. Training use on this host.
+name: oscp-prep-lab
+
+networks:
+  lab-dmz:
+    ipam:
+      config:
+        - subnet: 172.28.10.0/24
+  lab-internal:
+    internal: true
+    ipam:
+      config:
+        - subnet: 172.28.20.0/24
+
+x-lab: &lab
+  image: oscp-prep-lab:local
+  build: .
+  pull_policy: never
+  restart: unless-stopped
+  stdin_open: false
+  tty: false
+
+services:
+  harbor:
+    <<: *lab
+    hostname: harbor
+    environment:
+      LAB: harbor
+    networks:
+      lab-dmz:
+        ipv4_address: 172.28.10.11
+    ports:
+      - "127.0.0.1:8011:80"
+
+  ledger:
+    <<: *lab
+    hostname: ledger
+    environment:
+      LAB: ledger
+    networks:
+      lab-dmz:
+        ipv4_address: 172.28.10.12
+    ports:
+      - "127.0.0.1:8012:80"
+      - "127.0.0.1:2212:22"
+
+  catalog:
+    <<: *lab
+    hostname: catalog
+    environment:
+      LAB: catalog
+    networks:
+      lab-dmz:
+        ipv4_address: 172.28.10.13
+    ports:
+      - "127.0.0.1:8013:80"
+      - "127.0.0.1:2213:22"
+
+  ms01:
+    <<: *lab
+    hostname: MS01
+    environment:
+      LAB: ms01
+    networks:
+      lab-dmz:
+        ipv4_address: 172.28.10.21
+      lab-internal:
+        ipv4_address: 172.28.20.11
+    ports:
+      - "127.0.0.1:8021:80"
+      - "127.0.0.1:2221:22"
+
+  app01:
+    <<: *lab
+    hostname: APP01
+    environment:
+      LAB: app01
+    networks:
+      lab-internal:
+        ipv4_address: 172.28.20.12
+
+  dc01:
+    <<: *lab
+    hostname: DC01
+    environment:
+      LAB: dc01
+    networks:
+      lab-internal:
+        ipv4_address: 172.28.20.13

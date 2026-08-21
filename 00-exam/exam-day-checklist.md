@@ -5,6 +5,7 @@ Print or keep open in a second pane. Check boxes as you go.
 ## T-24h / setup (before exam)
 
 - [ ] Official exam guide + FAQ re-read (proctoring, MSF limits, connectivity)
+- [ ] At least one timed exam-replica set done (PEN-200 OSCP A/B/C or equivalent) — see [practice-labs-2026.md](../resources/practice-labs-2026.md)
 - [ ] Kali updated; VPN client tested; disk space free
 - [ ] Snapshot / backup of attack VM
 - [ ] Toolkit staged under one HTTP/SMB root (`tools/`, multi-port shell EXEs)
